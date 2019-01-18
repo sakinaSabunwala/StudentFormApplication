@@ -1,0 +1,71 @@
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit(studentForm)" #studentForm ="ngForm">
+ 
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" class="form-control" id="fname"
+       required
+       [(ngModel)]="stuData.fname" name="fname" #fname="ngModel">
+       <div [hidden]="fname.valid || fname.pristine"
+             class="alert alert-danger">
+             first Name is required
+        </div>
+    </div>
+ 
+    <div class="form-group">
+      <label for="lname">Last name</label>
+      <input type="text" class="form-control" id="lname"
+      required
+       [(ngModel)]="stuData.lname" name="lname" #lname="ngModel">
+       <div [hidden]="lname.valid || lname.pristine"
+             class="alert alert-danger">
+             last Name is required
+        </div>
+     </div>
+
+    <div class = "form-group">
+      <label for="cllgname">College name</label>
+      <input type="text" class="form-control" id="cllgname"
+      required
+       [(ngModel)]="stuData.cllgname" name="cllgname" #cllgname="ngModel">
+       <div [hidden]="cllgname.valid || cllgname.pristine"
+             class="alert alert-danger">
+             college Name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rollno">Roll Number</label>
+      <input type="text" class="form-control" id="rollno"
+        required
+        [(ngModel)]="stuData.rollno" name="rollno" #rollno="ngModel">
+       <div [hidden]="rollno.valid || rollno.pristine" 
+            class="alert alert-danger">
+            roll number is required
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address"
+      required
+       [(ngModel)]="stuData.address" name="address" #address="ngModel">
+       <div [hidden]="address.valid || address.pristine"
+             class="alert alert-danger">
+              address is required
+        </div>
+    </div>
+
+    <div class="form-group">
+    <button type="submit" value="submit">submit</button>
+    </div>
+
+    <div>
+        {{ stuData | json }}
+    </div>
+</form>
+</div>
+<div [hidden]="!submitted">
+  <hr>
+  <app-student-list></app-student-list>
+</div>
